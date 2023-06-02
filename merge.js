@@ -27,6 +27,17 @@ function merge(arr1, arr2) {
 
 }
 
-function mergeSort() {}
+function mergeSort(arr) {
+    if(arr.length<=1){
+        return arr;
+    }
+    const mid = Math.floor(arr.length/2);
+    const start = mergeSort(arr.slice(0, mid))
+    const end = mergeSort(arr.slice(mid));
+
+    return merge(start, end);
+
+}
+
 
 module.exports = { merge, mergeSort};
